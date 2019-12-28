@@ -2,10 +2,15 @@
 name = Typing Turtle
 activity_version = 31
 license = GPLv3+
+release_date = 2019-12-28
 bundle_id = org.sugarlabs.TypingTurtle
 icon = Activity-typingturtle
 exec = sugar-activity3 typingturtle.TypingTurtle
 summary = Need some help typing? Here you will learn the best way to hold your hands in order for you to become a faster typist!
+description = Typing Turtle is an interactive touch typing program. It gradually introduces the keys on the keyboard through a series of lessons, until the student has learned the entire keyboard.
+metadata_license = CC0-1.0
+update_contact = tch@sugarlabs.org
+developer_name = Sugar Labs Community
 repository = https://github.com/sugarlabs/typing-turtle-activity
 tags = Language;System;Game
 url = https://help.sugarlabs.org/en/typing_turtle.html
