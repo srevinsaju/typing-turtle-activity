@@ -55,7 +55,7 @@ logging.basicConfig()
 sys.path.insert(0, '.')
 sys.path.insert(0, '../.')
 print(sys.path, "SSSSSSSSSSS")
-print(os.environ['SUGAR_BUNDLE_ID'])
+print(os.environ['SUGAR_ACTIVITY_ROOT'])
 # Set correct DPI for Rsvg and Screen
 gi.require_version('PangoCairo', '1.0')
 from gi.repository import PangoCairo
