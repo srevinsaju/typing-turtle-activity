@@ -52,8 +52,9 @@ logging.basicConfig()
 # Change to bundle directory.
 # bundle_path = sugar3.activity.activity.get_bundle_path() 
 # os.chdir(bundle_path)
-sys.path.append('.')
-sys.path.append('../.')
+sys.path.insert(0, '.')
+sys.path.insert(0, '../.')
+print(sys.path, "SSSSSSSSSSS")
 
 # Set correct DPI for Rsvg and Screen
 gi.require_version('PangoCairo', '1.0')
