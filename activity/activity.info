@@ -12,5 +12,5 @@ metadata_license = CC0-1.0
 update_contact = tch@sugarlabs.org
 developer_name = Sugar Labs Community
 repository = https://github.com/sugarlabs/typing-turtle-activity
-tags = Language;System;Game
+tags = Education
 url = https://help.sugarlabs.org/en/typing_turtle.html

@@ -543,7 +543,7 @@ class EditLessonScreen(Gtk.VBox):
         # Load the myspell dictionary.
         # TODO: Find a better way to determine its location.
         code = locale.getdefaultlocale()[0] or 'en_US'
-        return lessonbuilder.load_wordlist('/usr/share/myspell/%s.dic' % code)
+        return lessonbuilder.load_wordlist('/app/share/myspell/%s.dic' % code)
 
     def generate_ok_clicked_cb(self, btn, box):
         self.save()
