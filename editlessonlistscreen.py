@@ -30,7 +30,7 @@ import sugar3.activity.activity
 import sugar3.graphics.style
 import sugar3.graphics.alert
 import sugar3.mime
-import sugar3.datastore.datastore
+from sugarapp.widgets import DesktopSaveChooser
 from sugar3.graphics.objectchooser import ObjectChooser
 
 # Import activity modules.
@@ -305,28 +305,16 @@ class EditLessonListScreen(Gtk.VBox):
                 fd.close()
     
     def export_clicked_cb(self, btn):
-        # Create the new journal entry
-        fileObject = sugar3.datastore.datastore.create()
-
-        meta = self.activity.metadata
-        fileObject.metadata['title'] = meta['title'] + _(' (Exported Lessons)')
-        fileObject.metadata['title_set_by_user'] = meta['title_set_by_user']
-        fileObject.metadata['mime_type'] = 'text/x-typing-turtle-lessons'
-        fileObject.metadata['icon-color'] = meta['icon-color']
-        fileObject.file_path = os.path.join(self.activity.get_activity_root(), 'instance', '%i' % time.time())
-        
-        fd = open(fileObject.file_path, 'w')
-        
-        try:
-            data = { 'lessons': self.lessons }
-            fd.write(json.dumps(data))
-            
-        finally:
-            fd.close()
-        
-        sugar3.datastore.datastore.write(fileObject, transfer_ownership=True)
-        fileObject.destroy()
-        del fileObject
+        chooser = DesktopSaveChooser(self, filename='untitled.lesson')
+        filename = chooser.get_filename()
+        if filename:
+            fd = open(filename, 'w')
+            try:
+                data = { 'lessons': self.lessons }
+                fd.write(json.dumps(data))
+                
+            finally:
+                fd.close()
 
     def set_default_clicked_cb(self, btn):
         code = locale.getdefaultlocale()[0] or 'en_US'
