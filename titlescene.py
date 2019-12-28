@@ -34,7 +34,7 @@ class TitleScene(Gtk.DrawingArea):
     TITLE_OFFSET = (20, 50)
 
     # Font used to display the title.
-    TITLE_FONT = 'Times 45'
+    TITLE_FONT = 'Monospace 45'
 
     def __init__(self):
         Gtk.DrawingArea.__init__(self)

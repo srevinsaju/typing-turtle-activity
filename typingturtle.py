@@ -16,7 +16,7 @@
 """Typing Turtle - Interactive typing tutor for Sugar."""
 
 # Import standard Python modules.
-import logging, os, math, time, copy, locale, datetime, random, re
+import logging, os, math, time, copy, locale, datetime, random, re, sys
 from gettext import gettext as _
 import json
 
@@ -33,7 +33,7 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
 # Import Sugar UI modules.
-import sugar3.activity.activity
+import sugar3
 from sugar3.graphics import *
 from sugar3.graphics import toolbutton
 from sugar3 import profile
@@ -42,14 +42,18 @@ from sugar3.graphics.toolbarbox import ToolbarBox
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
 
+from sugarapp.widgets import SugarCompatibleActivity
+
 # Initialize logging.
 log = logging.getLogger('Typing Turtle')
 log.setLevel(logging.DEBUG)
 logging.basicConfig()
 
 # Change to bundle directory.
-bundle_path = sugar3.activity.activity.get_bundle_path() 
-os.chdir(bundle_path)
+# bundle_path = sugar3.activity.activity.get_bundle_path() 
+# os.chdir(bundle_path)
+sys.path.append('.')
+sys.path.append('../.')
 
 # Set correct DPI for Rsvg and Screen
 gi.require_version('PangoCairo', '1.0')
@@ -78,9 +82,9 @@ import mainscreen, editlessonlistscreen
 # 
 # It owns the main application window, and all the various toolbars and options.
 # Activity Screens are stored in a stack, with the currently active screen on top.
-class TypingTurtle(sugar3.activity.activity.Activity):
+class TypingTurtle(SugarCompatibleActivity):
     def __init__ (self, handle):
-        sugar3.activity.activity.Activity.__init__(self, handle)
+        SugarCompatibleActivity.__init__(self, handle)
         self.set_title(_("Typing Turtle"))
         self.max_participants = 1
         
@@ -206,4 +210,3 @@ class TypingTurtle(sugar3.activity.activity.Activity):
             fd.write(text)
         finally:
             fd.close()
-

@@ -106,14 +106,14 @@ def _is_olpcm_model():
     keyboard, and 'olpc' for membrane keyboard.
 
     """
-    code = None
-    p = subprocess.Popen(["setxkbmap", "-query"], stdout=subprocess.PIPE)
-    out, err = p.communicate()
+    pass
+
+
     
-    for line in out.decode('utf-8').splitlines():
-        if line.startswith('model:'):
-            code = line.split()[1]
-    return code == 'olpcm'
+
+
+
+
 
 def get_layout():
     if _is_olpcm_model():
