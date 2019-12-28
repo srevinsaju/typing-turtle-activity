@@ -108,13 +108,6 @@ def _is_olpcm_model():
     """
     pass
 
-
-    
-
-
-
-
-
 def get_layout():
     if _is_olpcm_model():
         return OLPCM_LAYOUT

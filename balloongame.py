@@ -245,7 +245,7 @@ class BalloonGame(Gtk.VBox):
     
         cr.set_source_rgb(0, 0, 0)
         pango_layout = PangoCairo.create_layout(cr)
-        fd = Pango.FontDescription('Times')
+        fd = Pango.FontDescription('Monospace')
         fd.set_size(12 * Pango.SCALE)
         pango_layout.set_font_description(fd)
         pango_layout.set_text(report, len(report))
@@ -354,7 +354,7 @@ class BalloonGame(Gtk.VBox):
 
     def queue_draw_score(self):
         layout = self.area.create_pango_layout(_('SCORE: %d') % self.score)
-        layout.set_font_description(Pango.FontDescription('Times 14'))
+        layout.set_font_description(Pango.FontDescription('Monospace 14'))
         size = layout.get_size()
         x = self.bounds.width-20-size[0]/Pango.SCALE
         y = 20
@@ -363,7 +363,7 @@ class BalloonGame(Gtk.VBox):
     def draw_score(self, cr):
         cr.set_source_rgb(0, 0, 0)
         pango_layout = PangoCairo.create_layout(cr)
-        fd = Pango.FontDescription('Times')
+        fd = Pango.FontDescription('Monospace')
         fd.set_size(14 * Pango.SCALE)
         pango_layout.set_font_description(fd)
         text = _('SCORE: %d') % self.score
@@ -380,7 +380,7 @@ class BalloonGame(Gtk.VBox):
         # Draw instructions.
         cr.set_source_rgb(0, 0, 0)
         pango_layout = PangoCairo.create_layout(cr)
-        pango_layout.set_font_description(Pango.FontDescription('Times 14'))
+        pango_layout.set_font_description(Pango.FontDescription('Monospace 14'))
         text = _('Type the words to pop the balloons!')
         pango_layout.set_text(text, len(text))
         size = pango_layout.get_size()
